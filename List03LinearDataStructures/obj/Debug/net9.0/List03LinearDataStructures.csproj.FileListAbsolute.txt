@@ -1,0 +1,14 @@
+C:\Users\jessi\source\repos\List03LinearDataStructures\bin\Debug\net9.0\List03LinearDataStructures.exe
+C:\Users\jessi\source\repos\List03LinearDataStructures\bin\Debug\net9.0\List03LinearDataStructures.deps.json
+C:\Users\jessi\source\repos\List03LinearDataStructures\bin\Debug\net9.0\List03LinearDataStructures.runtimeconfig.json
+C:\Users\jessi\source\repos\List03LinearDataStructures\bin\Debug\net9.0\List03LinearDataStructures.dll
+C:\Users\jessi\source\repos\List03LinearDataStructures\bin\Debug\net9.0\List03LinearDataStructures.pdb
+C:\Users\jessi\source\repos\List03LinearDataStructures\obj\Debug\net9.0\List03LinearDataStructures.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jessi\source\repos\List03LinearDataStructures\obj\Debug\net9.0\List03LinearDataStructures.AssemblyInfoInputs.cache
+C:\Users\jessi\source\repos\List03LinearDataStructures\obj\Debug\net9.0\List03LinearDataStructures.AssemblyInfo.cs
+C:\Users\jessi\source\repos\List03LinearDataStructures\obj\Debug\net9.0\List03LinearDataStructures.csproj.CoreCompileInputs.cache
+C:\Users\jessi\source\repos\List03LinearDataStructures\obj\Debug\net9.0\List03LinearDataStructures.dll
+C:\Users\jessi\source\repos\List03LinearDataStructures\obj\Debug\net9.0\refint\List03LinearDataStructures.dll
+C:\Users\jessi\source\repos\List03LinearDataStructures\obj\Debug\net9.0\List03LinearDataStructures.pdb
+C:\Users\jessi\source\repos\List03LinearDataStructures\obj\Debug\net9.0\List03LinearDataStructures.genruntimeconfig.cache
+C:\Users\jessi\source\repos\List03LinearDataStructures\obj\Debug\net9.0\ref\List03LinearDataStructures.dll
