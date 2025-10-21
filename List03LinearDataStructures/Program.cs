@@ -219,173 +219,185 @@ else
 // LIST
 // ============================================================
 List<int> list = new List<int>();
-int listOption = 0;
+int option;
 do
 {
     Console.WriteLine("\n=== LIST MENU ===");
-    Console.WriteLine("1) add number");
-    Console.WriteLine("2) remove number");
-    Console.WriteLine("3) remove by position");
-    Console.WriteLine("4) print list");
-    Console.WriteLine("5) print reversed");
-    Console.WriteLine("6) count elements");
-    Console.WriteLine("7) clear list");
-    Console.WriteLine("8) exit");
+    Console.WriteLine("1) Add number");
+    Console.WriteLine("2) Remove number");
+    Console.WriteLine("3) Remove by position");
+    Console.WriteLine("4) Print list");
+    Console.WriteLine("5) Print reversed");
+    Console.WriteLine("6) Count elements");
+    Console.WriteLine("7) Clear list");
+    Console.WriteLine("8) Exit");
     Console.Write("Option: ");
-    listOption = int.Parse(Console.ReadLine());
-
-    if (listOption == 1)
+    if (!int.TryParse(Console.ReadLine(), out option))
     {
-        Console.Write("enter number: ");
-        int num = int.Parse(Console.ReadLine());
-        list.Add(num);
+        Console.WriteLine("Invalid input. Please enter a number.");
+        continue;
     }
-    else if (listOption == 2)
+    switch (option)
     {
-        Console.Write("enter number to remove: ");
-        int num = int.Parse(Console.ReadLine());
-        if (!list.Remove(num))
-            Console.WriteLine("number not found.");
+        case 1:
+            Console.Write("Enter number: ");
+            if (int.TryParse(Console.ReadLine(), out int num))
+            {
+                list.Add(num);
+            }
+            break;
+        case 3:
+            Console.Write("Enter position: ");
+            if (int.TryParse(Console.ReadLine(), out int pos) && pos >= 0 && pos < list.Count)
+            {
+                list.RemoveAt(pos);
+                Console.WriteLine("Element removed.");
+            }
+            else
+            {
+                Console.WriteLine("Invalid position.");
+            }
+            break;
+        case 4:
+            Console.WriteLine("List: " + string.Join(" ", list));
+            break;
+        case 5:
+            Console.WriteLine("Reversed: " + string.Join(" ", list.AsEnumerable().Reverse()));
+            break;
+        case 6:
+            Console.WriteLine($"List has {list.Count} elements.");
+            break;
+        case 7:
+            list.Clear();
+            Console.WriteLine("List cleared.");
+            break;
+        case 8:
+            break;
+        default:
+            Console.WriteLine("Invalid option.");
+            break;
     }
-    else if (listOption == 3)
-    {
-        Console.Write("enter position: ");
-        int pos = int.Parse(Console.ReadLine());
-        if (pos >= 0 && pos < list.Count)
-            list.RemoveAt(pos);
-        else
-            Console.WriteLine("invalid position.");
-    }
-    else if (listOption == 4)
-    {
-        Console.WriteLine("list: ");
-        foreach (int x in list)
-            Console.Write(x + " ");
-        Console.WriteLine();
-    }
-    else if (listOption == 5)
-    {
-        for (int i = list.Count - 1; i >= 0; i--)
-            Console.Write(list[i] + " ");
-        Console.WriteLine();
-    }
-    else if (listOption == 6)
-    {
-        Console.WriteLine($"list has {list.Count} elements.");
-    }
-    else if (listOption == 7)
-    {
-        list.Clear();
-        Console.WriteLine("list cleared.");
-    }
-
-} while (listOption != 8);
+} while (option != 8);
 
 // ============================================================
 // STACK
 // ============================================================
 Stack<int> stack = new Stack<int>();
-int stackOption = 0;
+int option;
 do
 {
     Console.WriteLine("\n=== STACK MENU ===");
-    Console.WriteLine("1) push");
-    Console.WriteLine("2) pop");
-    Console.WriteLine("3) peek");
-    Console.WriteLine("4) count");
-    Console.WriteLine("5) clear");
-    Console.WriteLine("6) exit");
-    Console.Write("option: ");
-    stackOption = int.Parse(Console.ReadLine());
+    Console.WriteLine("1) Push");
+    Console.WriteLine("2) Pop");
+    Console.WriteLine("3) Peek");
+    Console.WriteLine("4) Count");
+    Console.WriteLine("5) Clear");
+    Console.WriteLine("6) Exit");
+    Console.Write("Option: ");
+    if (!int.TryParse(Console.ReadLine(), out option))
+    {
+        Console.WriteLine("Invalid input. Please enter a number.");
+        continue;
+    }
+    switch (option)
+    {
+        case 1:
+            Console.Write("Enter number: ");
+            if (int.TryParse(Console.ReadLine(), out int num))
+            {
+                stack.Push(num);
+                Console.WriteLine("Number pushed.");
+            }
+            else
+            {
+                Console.WriteLine("Invalid number.");
+            }
+            break;
+        case 2:
+            if (stack.Count > 0)
+                Console.WriteLine($"Popped: {stack.Pop()}");
+            else
+                Console.WriteLine("Stack is empty.");
+            break;
+        case 3:
+            if (stack.Count > 0)
+                Console.WriteLine($"Top: {stack.Peek()}");
+            else
+                Console.WriteLine("Stack is empty.");
+            break;
+        case 4:
+            Console.WriteLine($"Stack has {stack.Count} elements.");
+            break;
+        case 5:
+            stack.Clear();
+            Console.WriteLine("Stack cleared.");
+            break;
+        case 6:
+            break;
+        default:
+            Console.WriteLine("Invalid option.");
+            break;
+    }
+} while (option != 6);
 
-    if (stackOption == 1)
-    {
-        Console.Write("enter number: ");
-        int num = int.Parse(Console.ReadLine());
-        stack.Push(num);
-        Console.WriteLine("number pushed.");
-    }
-    else if (stackOption == 2)
-    {
-        if (stack.Count > 0)
-            Console.WriteLine($"popped: {stack.Pop()}");
-        else
-            Console.WriteLine("stack is empty.");
-    }
-    else if (stackOption == 3)
-    {
-        if (stack.Count > 0)
-            Console.WriteLine($"top: {stack.Peek()}");
-        else
-            Console.WriteLine("stack is empty.");
-    }
-    else if (stackOption == 4)
-    {
-        Console.WriteLine($"stack has {stack.Count} elements.");
-    }
-    else if (stackOption == 5)
-    {
-        stack.Clear();
-        Console.WriteLine("stack cleared.");
-    }
-
-} while (stackOption != 6);
 
 // ============================================================
 // QUEUE
 // ============================================================
 Queue<string> queue = new Queue<string>();
-int queueOption = 0;
+int option;
 do
 {
     Console.WriteLine("\n=== QUEUE MENU ===");
-    Console.WriteLine("1) enqueue");
-    Console.WriteLine("2) dequeue");
-    Console.WriteLine("3) peek");
-    Console.WriteLine("4) print all");
-    Console.WriteLine("5) count");
-    Console.WriteLine("6) clear");
-    Console.WriteLine("7) exit");
-    Console.Write("option: ");
-    queueOption = int.Parse(Console.ReadLine());
+    Console.WriteLine("1) Enqueue");
+    Console.WriteLine("2) Dequeue");
+    Console.WriteLine("3) Peek");
+    Console.WriteLine("4) Print all");
+    Console.WriteLine("5) Count");
+    Console.WriteLine("6) Clear");
+    Console.WriteLine("7) Exit");
+    Console.Write("Option: ");
+    if (!int.TryParse(Console.ReadLine(), out option))
+    {
+        Console.WriteLine("Invalid input. Please enter a number.");
+        continue;
+    }
+    switch (option)
+    {
+        case 1:
+            Console.Write("Enter string: ");
+            queue.Enqueue(Console.ReadLine());
+            Console.WriteLine("String enqueued.");
+            break;
+        case 2:
+            if (queue.Count > 0)
+                Console.WriteLine($"dequeued: {queue.Dequeue()}");
+            if (queue.Count > 0)
+                Console.WriteLine($"dequeued: {queue.Dequeue()}");
+            else
+                Console.WriteLine("Queue is empty.");
+            break;
+        case 3:
+            if (queue.Count > 0)
+                Console.WriteLine($"front: {queue.Peek()}");
+            else
+                Console.WriteLine("queue is empty.");
+            break;
+        case 4:
+            Console.WriteLine("queue contents: " + string.Join(" ", queue));
+            break;
+        case 5:
+            Console.WriteLine($"queue has {queue.Count} elements.");
+            break;
+        case 6:
+            queue.Clear();
+            Console.WriteLine("queue cleared.");
+            break;
+        case 7:
+            break;
+        default:
+            Console.WriteLine("invalid option.");
+            break;
+    }
+} while (option != 7);
 
-    if (queueOption == 1)
-    {
-        Console.Write("enter string: ");
-        string text = Console.ReadLine();
-        queue.Enqueue(text);
-        Console.WriteLine("string enqueued.");
-    }
-    else if (queueOption == 2)
-    {
-        if (queue.Count > 0)
-            Console.WriteLine($"dequeued: {queue.Dequeue()}");
-        else
-            Console.WriteLine("queue is empty.");
-    }
-    else if (queueOption == 3)
-    {
-        if (queue.Count > 0)
-            Console.WriteLine($"front: {queue.Peek()}");
-        else
-            Console.WriteLine("queue is empty.");
-    }
-    else if (queueOption == 4)
-    {
-        Console.WriteLine("queue contents:");
-        foreach (string s in queue)
-            Console.Write(s + " ");
-        Console.WriteLine();
-    }
-    else if (queueOption == 5)
-    {
-        Console.WriteLine($"queue has {queue.Count} elements.");
-    }
-    else if (queueOption == 6)
-    {
-        queue.Clear();
-        Console.WriteLine("queue cleared.");
-    }
-
-} while (queueOption != 7);
-       
