@@ -246,6 +246,20 @@ do
                 list.Add(num);
             }
             break;
+        case 2:
+            Console.Write("Enter number to remove: ");
+            if (int.TryParse(Console.ReadLine(), out int removeNum))
+            {
+                if (!list.Remove(removeNum))
+                    Console.WriteLine("Number not found.");
+                else
+                    Console.WriteLine("Number removed.");
+            }
+            else
+            {
+                Console.WriteLine("Invalid number.");
+            }
+            break;
         case 3:
             Console.Write("Enter position: ");
             if (int.TryParse(Console.ReadLine(), out int pos) && pos >= 0 && pos < list.Count)
